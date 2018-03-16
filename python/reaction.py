@@ -21,20 +21,21 @@ right_button = Button(27)
 ##print('Right button was pressed')
 
 def pressed(button):
-    if button.pin.number == 17:
-        left_led.on()
-        print(left_name+' won the game!')
-        global left_score
-        left_score += 10
-        sleep(2)
-        left_led.off()
-    else:
-        right_led.on()
-        print(right_name+' won the game!')
-        global right_score
-        right_score += 10
-        sleep(2)
-        right_led.off()
+    if led.is_lit == False:
+        if button.pin.number == 17:
+            left_led.on()
+            print(left_name+' won the game!')
+            global left_score
+            left_score += 10
+            sleep(2)
+            left_led.off()
+        else:
+            right_led.on()
+            print(right_name+' won the game!')
+            global right_score
+            right_score += 10
+            sleep(2)
+            right_led.off()
 
 left_button.when_pressed = pressed
 right_button.when_pressed = pressed
